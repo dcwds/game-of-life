@@ -1,4 +1,4 @@
-const block = {
+export const block = {
   seed: [
     [1, 1],
     [1, 1]
@@ -9,7 +9,7 @@ const block = {
   ]
 }
 
-const beeHive = {
+export const beeHive = {
   seed: [
     [0, 1, 1, 0],
     [1, 0, 0, 1],
@@ -22,7 +22,7 @@ const beeHive = {
   ]
 }
 
-const blinker = {
+export const blinker = {
   seed: [
     [0, 1, 0],
     [0, 1, 0],
@@ -35,7 +35,7 @@ const blinker = {
   ]
 }
 
-const toad = {
+export const toad = {
   seed: [
     [0, 0, 1, 0],
     [1, 0, 0, 1],
@@ -50,7 +50,7 @@ const toad = {
   ]
 }
 
-const glider = {
+export const glider = {
   seed: [
     [1, 0, 0, 0, 0, 0, 0],
     [0, 1, 1, 0, 0, 0, 0],
