@@ -3,13 +3,17 @@ import { GameContext } from "../context"
 
 import Cell from "../cell"
 
+import "./grid.css"
+
 const Grid = () => {
-  const { game } = useContext(GameContext)
+  const {
+    game: { state }
+  } = useContext(GameContext)
 
   return (
-    <div className="select-none">
-      {game.map((row, yIdx) => (
-        <div className="flex" key={yIdx}>
+    <div className="grid">
+      {state.map((row, yIdx) => (
+        <div className="row" key={yIdx}>
           {row.map((cell, idx) => (
             <Cell key={`${yIdx}-${idx}`} living={cell === 1 ? true : false} />
           ))}

@@ -1,0 +1,9 @@
+.cell {
+  @apply border border-solid border-gray-800 w-full;
+}
+
+.cell::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}

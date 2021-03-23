@@ -1,0 +1,7 @@
+.grid {
+  @apply select-none;
+}
+
+.row {
+  @apply flex;
+}
