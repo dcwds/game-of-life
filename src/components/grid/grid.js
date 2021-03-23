@@ -1,25 +1,22 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import { GameContext } from "../context"
 
 import Cell from "../cell"
-import { nextGen } from "../../algo/gol"
 
 const Grid = () => {
-  const { game, setGame } = useContext(GameContext)
+  const { game } = useContext(GameContext)
 
-  useEffect(() => {
-    const tick = setInterval(() => setGame(nextGen(game)), 200)
-
-    return () => clearInterval(tick)
-  })
-
-  return game.map((row, yIdx) => (
-    <div className="flex" key={yIdx}>
-      {row.map((cell, idx) => (
-        <Cell key={`${yIdx}-${idx}`} living={cell === 1 ? true : false} />
+  return (
+    <div className="select-none">
+      {game.map((row, yIdx) => (
+        <div className="flex" key={yIdx}>
+          {row.map((cell, idx) => (
+            <Cell key={`${yIdx}-${idx}`} living={cell === 1 ? true : false} />
+          ))}
+        </div>
       ))}
     </div>
-  ))
+  )
 }
 
 export default Grid
