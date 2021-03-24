@@ -1,3 +1,3 @@
-import PauseButton from "./pause-button"
+import Controls from "./controls"
 
-export { PauseButton }
+export default Controls

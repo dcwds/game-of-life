@@ -1,14 +1,15 @@
 import React, { createContext } from "react"
 import useGame from "../hooks/useGame"
 import randomSeed from "../utils/randomSeed"
+import { GAME_SIZE } from "../constants"
 
 const GameContext = createContext({
-  game: randomSeed(25, 25),
+  game: randomSeed(GAME_SIZE, GAME_SIZE),
   setGame: () => {}
 })
 
 const Provider = ({ children }) => {
-  const [game, setGame] = useGame(randomSeed(25, 25))
+  const [game, setGame] = useGame(randomSeed(GAME_SIZE, GAME_SIZE))
 
   return (
     <GameContext.Provider value={{ game, setGame }}>
