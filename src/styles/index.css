@@ -4,10 +4,40 @@
 
 @layer base {
   body {
-    @apply font-sans bg-gray-800 text-gray-400;
+    @apply font-sans bg-gray-900 text-gray-400 leading-relaxed;
+  }
+
+  a {
+    @apply text-purple-300 font-semibold transition-colors;
+  }
+
+  a:hover {
+    @apply text-purple-100;
   }
 
   h1 {
     @apply text-gray-100 text-3xl font-semibold;
+  }
+
+  .btn--stroke {
+    @apply text-purple-500 border-2 border-solid border-purple-600;
+  }
+
+  .btn--fill {
+    @apply text-white bg-purple-600;
+  }
+
+  .btn {
+    min-width: 6rem;
+
+    @apply transition-colors text-xs md:text-sm font-bold rounded-lg py-2 px-4 md:py-3 md:px-5 select-none;
+  }
+
+  .btn:hover {
+    @apply bg-white text-purple-600 border-white;
+  }
+
+  .btn:focus {
+    @apply outline-none;
   }
 }

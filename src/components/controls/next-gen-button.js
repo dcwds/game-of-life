@@ -9,8 +9,11 @@ const NextGenButton = () => {
   } = useContext(GameContext)
 
   return (
-    <button onClick={() => setGame({ state: nextGen(state), paused })}>
-      Next Generation
+    <button
+      className="btn btn--stroke"
+      onClick={() => setGame({ state: nextGen(state), paused })}
+    >
+      Next Step
     </button>
   )
 }

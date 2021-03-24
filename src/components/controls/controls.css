@@ -1,0 +1,11 @@
+.controls {
+  @apply flex justify-between mt-8;
+}
+
+.controls li {
+  @apply mr-4;
+}
+
+.controls li:last-of-type {
+  @apply mr-0;
+}

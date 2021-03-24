@@ -1,5 +1,5 @@
 .cell {
-  @apply border border-solid border-gray-800 w-full;
+  @apply border border-solid border-gray-900 w-full;
 }
 
 .cell::after {

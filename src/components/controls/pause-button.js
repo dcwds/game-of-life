@@ -8,7 +8,10 @@ const PauseButton = () => {
   } = useContext(GameContext)
 
   return (
-    <button onClick={() => setGame({ state, paused: !paused })}>
+    <button
+      className="btn btn--stroke"
+      onClick={() => setGame({ state, paused: !paused })}
+    >
       {paused ? "Play" : "Pause"}
     </button>
   )
