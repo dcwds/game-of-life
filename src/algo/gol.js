@@ -30,15 +30,10 @@ const cellLives = (cell, neighbors) => {
   const livingCount = neighbors.filter((v) => !!v).length
 
   // Cell is currently alive.
-  if (!!cell) {
-    if (livingCount === 2 || livingCount === 3) return true
-    else return false
-  }
+  if (!!cell) return livingCount === 2 || livingCount === 3
+
   // Cell is currently dead.
-  else {
-    if (livingCount === 3) return true
-    else return false
-  }
+  else return livingCount === 3
 }
 
 const nextGen = (seed) =>
