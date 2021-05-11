@@ -11,7 +11,7 @@ const Grid = () => {
   } = useContext(GameContext)
 
   return (
-    <div className="grid">
+    <div className="grid" data-testid="grid">
       {state.map((row, yIdx) => (
         <div className="row" key={yIdx}>
           {row.map((cell, idx) => (

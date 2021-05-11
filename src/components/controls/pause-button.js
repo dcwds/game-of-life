@@ -9,6 +9,7 @@ const PauseButton = () => {
 
   return (
     <button
+      data-testid="pause button"
       className="btn btn--stroke"
       onClick={() => setGame({ state, paused: !paused })}
     >

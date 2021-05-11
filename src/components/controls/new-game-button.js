@@ -11,6 +11,7 @@ const NewGameButton = () => {
 
   return (
     <button
+      data-testid="new-game button"
       className="btn btn--fill px-6"
       onClick={() =>
         setGame({ state: randomSeed(GAME_SIZE, GAME_SIZE), paused })

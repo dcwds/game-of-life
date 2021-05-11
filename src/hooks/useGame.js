@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { nextGen } from "../algo/gol"
+import { GAME_TICK_SPEED } from "../constants"
 
 const useGame = (seed) => {
   const [game, setGame] = useState({
@@ -11,7 +12,7 @@ const useGame = (seed) => {
     const { state, paused } = game
     const tick = setInterval(
       () => setGame({ state: nextGen(state), paused: false }),
-      100
+      GAME_TICK_SPEED
     )
 
     if (paused) {
@@ -21,7 +22,7 @@ const useGame = (seed) => {
     return () => clearInterval(tick)
   })
 
-  return [game, setGame]
+  return { game, setGame }
 }
 
 export default useGame

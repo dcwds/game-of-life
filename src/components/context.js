@@ -9,7 +9,7 @@ const GameContext = createContext({
 })
 
 const Provider = ({ children }) => {
-  const [game, setGame] = useGame(randomSeed(GAME_SIZE, GAME_SIZE))
+  const { game, setGame } = useGame(randomSeed(GAME_SIZE, GAME_SIZE))
 
   return (
     <GameContext.Provider value={{ game, setGame }}>
