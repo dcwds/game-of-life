@@ -9,7 +9,7 @@ describe("useGame", () => {
 
     expect(result.current.game.state).toEqual(blinker.seed)
 
-    jest.advanceTimersByTime(GAME_TICK_SPEED)
+    act(() => jest.advanceTimersByTime(GAME_TICK_SPEED))
 
     expect(result.current.game.state).toEqual(blinker.next)
   })
@@ -21,9 +21,8 @@ describe("useGame", () => {
 
     act(() => {
       result.current.setGame({ state: result.current.game.state, paused: true })
+      jest.advanceTimersByTime(GAME_TICK_SPEED)
     })
-
-    jest.advanceTimersByTime(GAME_TICK_SPEED)
 
     expect(result.current.game.state).not.toEqual(blinker.next)
   })

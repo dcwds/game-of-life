@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, within } from "@testing-library/react"
+import { act, fireEvent, render, screen, within } from "@testing-library/react"
 import App from "./app"
 import randomSeed from "../../utils/randomSeed"
 import { blinker, beeHive } from "../../algo/seeds"
@@ -28,7 +28,7 @@ describe("app", () => {
 
     expect(cellStates).toEqual(blinker.seed.flat())
 
-    jest.advanceTimersByTime(GAME_TICK_SPEED)
+    act(() => jest.advanceTimersByTime(GAME_TICK_SPEED))
     cellStates = getCellStates(cells)
 
     expect(cellStates).toEqual(blinker.next.flat())
@@ -41,14 +41,14 @@ describe("app", () => {
     let cellStates = getCellStates(cells)
     expect(cellStates).toEqual(blinker.seed.flat())
 
-    const pauseButton = screen.getByTestId("pause button")
+    const pauseButton = screen.getByTestId("pause-button")
     fireEvent.click(pauseButton)
 
-    jest.advanceTimersByTime(GAME_TICK_SPEED)
+    act(() => jest.advanceTimersByTime(GAME_TICK_SPEED))
     cellStates = getCellStates(cells)
 
     expect(cellStates).not.toEqual(blinker.next.flat())
-    expect(screen.getByTestId("play button")).toBeInTheDocument()
+    expect(screen.getByTestId("play-button")).toBeInTheDocument()
   })
 
   it("generates next step of game when next step button is clicked", () => {
@@ -58,8 +58,8 @@ describe("app", () => {
     let cellStates = getCellStates(cells)
     expect(cellStates).toEqual(blinker.seed.flat())
 
-    const pauseButton = screen.getByTestId("pause button")
-    const nextStepButton = screen.getByTestId("next-gen button")
+    const pauseButton = screen.getByTestId("pause-button")
+    const nextStepButton = screen.getByTestId("next-gen-button")
 
     fireEvent.click(pauseButton)
     fireEvent.click(nextStepButton)
@@ -76,7 +76,7 @@ describe("app", () => {
     expect(cellStates).toEqual(blinker.seed.flat())
 
     randomSeed.mockReturnValue(beeHive.seed)
-    const newGameButton = screen.getByTestId("new-game button")
+    const newGameButton = screen.getByTestId("new-game-button")
 
     fireEvent.click(newGameButton)
     cells = within(grid).getAllByLabelText(/cell/i)

@@ -10,7 +10,7 @@ const NextGenButton = () => {
 
   return (
     <button
-      data-testid="next-gen button"
+      data-testid="next-gen-button"
       className="btn btn--stroke"
       onClick={() => setGame({ state: nextGen(state), paused })}
     >
