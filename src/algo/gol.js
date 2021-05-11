@@ -31,7 +31,6 @@ const cellLives = (cell, neighbors) => {
 
   // Cell is currently alive.
   if (!!cell) return livingCount === 2 || livingCount === 3
-
   // Cell is currently dead.
   else return livingCount === 3
 }

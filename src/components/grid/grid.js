@@ -1,8 +1,6 @@
 import React, { useContext } from "react"
 import { GameContext } from "../context"
-
 import Cell from "../cell"
-
 import "./grid.css"
 
 const Grid = () => {
