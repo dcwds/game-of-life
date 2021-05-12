@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Game of Life
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An app where users can watch, cycle through, and generate variations of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-## Available Scripts
+[View the app on Netlify](https://dcwds-gameoflife.netlify.app)
 
-In the project directory, you can run:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8df023d7-4ef4-4464-a70a-384c139f261d/deploy-status)](https://app.netlify.com/sites/dcwds-gameoflife/deploys)
 
-### `npm start`
+[![App](docs/app.png)](https://dcwds-gameoflife.netlify.app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Rules
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+- Any live cell with two or three live neighbours lives on to the next generation.
+- Any live cell with more than three live neighbours dies, as if by overcrowding.
+- Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
-### `npm test`
+[_You can check out the algorithm I implemented using these rules._](src/algo/gol.js)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## What I Learned
 
-### `npm run build`
+- [Jest has a `useFakeTimers` method](https://jestjs.io/docs/timer-mocks) which makes [testing `setInterval` easy](src/components/app/app.test.js).
+- Breaking up the algorithm logic into [multiple functions](src/algo/gol.js) makes [testing it easier](src/algo/gol.test.js).
+- Tailwind continues to be a clear winner in terms of getting something decent-looking out quickly.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Bootstrapped with [Create React App](https://createreactapp.dev)
+- Styles with [Tailwind](https://tailwindcss.com)
+- Testing tools with [Testing Library](https://testing-library.com)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `npm run eject`
+```sh
+# Install dependencies
+$ npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Start dev server at localhost:3000
+$ npm start
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Build for prod
+$ npm run build
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Start test runner
+$ npm test
+```
