@@ -22,6 +22,7 @@ An app where users can watch, cycle through, and generate variations of [Conway'
 - [Jest has a `useFakeTimers` method](https://jestjs.io/docs/timer-mocks) which makes [testing `setInterval` easy](src/components/app/app.test.js).
 - Breaking up the algorithm logic into [multiple functions](src/algo/gol.js) makes [testing it easier](src/algo/gol.test.js).
 - Tailwind continues to be a clear winner in terms of getting something decent-looking out quickly.
+- Use [GitHub workflows](.github/workflows/on-pull-request.yml) to gain more confidence in deployments.
 
 ## Tech Stack
 
